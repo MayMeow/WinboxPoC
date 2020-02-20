@@ -35,7 +35,8 @@ def get_pair(data):
             continue
 
         pass_plain = decrypt_password(user, pass_encrypted)
-        user  = user.decode("ascii")
+        # add ignore because of UnicodeDecodeError: 'ascii' codec can't decode byte 0xff in position 0: 
+        user  = user.decode("ascii", "ignore")
 
         user_list.append((user, pass_plain))
 
